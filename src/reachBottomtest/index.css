@@ -9,6 +9,7 @@
 }
 
 ul li {
+  list-style: none;
   height: 200px;
   background-color: red;
 }

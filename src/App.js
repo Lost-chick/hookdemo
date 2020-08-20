@@ -16,9 +16,9 @@ function App() {
       {/* <Counter /> */}
       {/* <ReduxDemo /> */}
       {/* <Home/> */}
-      {/* <ReachBottom/> */}
+      <ReachBottom/>
       {/* <Refresh /> */}
-      <ReachBottomTest/>
+      {/* <ReachBottomTest/> */}
     </div>
   );
 }

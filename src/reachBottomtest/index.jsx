@@ -34,7 +34,7 @@ class ReachBottom extends React.Component {
     }
 
     if (currentHeight >= scrollHeight) {
-      console.log('到底了...');
+      console.log('到底了...');// 正常
       this.onReachBottom()
       this.setState({
         isReach: true
@@ -70,7 +70,6 @@ class ReachBottom extends React.Component {
             <li></li>
             <li></li>
           {this.state.loading && <p className="loading">加载中。。。</p>}
-          {/* <p className="loading">加载中。。。</p> */}
           </ul>
         </div>
       </div>

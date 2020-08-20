@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './index.css';
 
 function ReachBottom() {
@@ -12,7 +12,7 @@ function ReachBottom() {
     };
   }, []);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     let windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
     let scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
@@ -27,13 +27,13 @@ function ReachBottom() {
     }
 
     if (currentHeight >= scrollHeight) {
-      console.log('到底了...');
-      onReachBottom()
+      console.log('到底了...');// 在范围内一直触发？？？
+      // onReachBottom()
       setIsReach(true);
     }
-  };
+  },[]);
 
-  const onReachBottom = () => {
+  const onReachBottom = useCallback(() => {
     if(loading) {
       return
     }
@@ -44,7 +44,8 @@ function ReachBottom() {
       setLoading(false);
 
     },3000)
-  }
+  },[])
+
   return (
     <div className="demo-container">
       <div className="demo-mian">
