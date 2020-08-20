@@ -56,8 +56,8 @@ function ReachBottom() {
           <li></li>
           <li></li>
           <li></li>
+          {loading && <p className="loading">加载中。。。</p>}
         </ul>
-        {loading && <p className="loading">加载中。。。</p>}
       </div>
     </div>
   );

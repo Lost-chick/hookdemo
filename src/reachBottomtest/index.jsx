@@ -69,8 +69,9 @@ class ReachBottom extends React.Component {
             <li></li>
             <li></li>
             <li></li>
-          </ul>
           {this.state.loading && <p className="loading">加载中。。。</p>}
+          {/* <p className="loading">加载中。。。</p> */}
+          </ul>
         </div>
       </div>
     )

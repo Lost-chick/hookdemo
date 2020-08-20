@@ -18,7 +18,5 @@ ul li:nth-child(odd) {
 }
 
 .loading {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+
 }
