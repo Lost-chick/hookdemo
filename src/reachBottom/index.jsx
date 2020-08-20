@@ -39,11 +39,11 @@ function ReachBottom() {
     }
     setLoading(true);
 
-    //
-    setTimeout(()=>{
-      setLoading(false);
+    // //
+    // setTimeout(()=>{
+    //   setLoading(false);
 
-    },3000)
+    // },3000)
   }
   return (
     <div className="demo-container">

@@ -1,0 +1,13 @@
+#refreshContainer li {
+  background-color: #eee;
+  margin-bottom: 1px;
+  padding: 20px 10px;
+}
+.refreshText {
+  position: absolute;
+  width: 100%;
+  line-height: 50px;
+  text-align: center;
+  left: 0;
+  top: 0;
+}

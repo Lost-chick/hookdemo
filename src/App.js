@@ -4,7 +4,8 @@ import Counter from './context'
 import ReduxDemo from './reduxDemo'
 import useStateDemo from './useStateDemo'
 import Home from './useDebounce'
-import ReachBottom from './reachBottom'
+import ReachBottom from './reachBottom';
+// import Refresh from './refresh'
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       {/* <ReduxDemo /> */}
       {/* <Home/> */}
       <ReachBottom/>
+      {/* <Refresh /> */}
     </div>
   );
 }
