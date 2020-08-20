@@ -6,9 +6,9 @@ function ReachBottom() {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, false);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScroll, false);
     };
   }, []);
 
@@ -27,7 +27,7 @@ function ReachBottom() {
     }
 
     if (currentHeight >= scrollHeight) {
-      console.log('到底了');
+      console.log('到底了...');
       onReachBottom()
       setIsReach(true);
     }
@@ -40,10 +40,10 @@ function ReachBottom() {
     setLoading(true);
 
     // //
-    // setTimeout(()=>{
-    //   setLoading(false);
+    setTimeout(()=>{
+      setLoading(false);
 
-    // },3000)
+    },3000)
   }
   return (
     <div className="demo-container">
