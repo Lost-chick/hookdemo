@@ -7,6 +7,7 @@ import Home from './useDebounce'
 import ReachBottom from './reachBottom';
 import ReachBottomTest from './reachBottomtest';
 // import Refresh from './refresh'
+import Gesture from './gesture'
 import './App.css';
 
 function App() {
@@ -16,9 +17,10 @@ function App() {
       {/* <Counter /> */}
       {/* <ReduxDemo /> */}
       {/* <Home/> */}
-      <ReachBottom/>
+      {/* <ReachBottom/> */}
       {/* <Refresh /> */}
       {/* <ReachBottomTest/> */}
+      {/* <Gesture /> */}
     </div>
   );
 }

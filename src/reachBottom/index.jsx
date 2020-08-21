@@ -5,14 +5,7 @@ function ReachBottom() {
   const [isReach, setIsReach] = useState(false);
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, false);
-    return () => {
-      window.removeEventListener('scroll', handleScroll, false);
-    };
-  }, []);
-
-  const handleScroll = useCallback(() => {
+  const handleScroll = () => {
     let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     let windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
     let scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
@@ -31,7 +24,13 @@ function ReachBottom() {
       // onReachBottom()
       setIsReach(true);
     }
-  },[]);
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, false);
+    return () => {
+      window.removeEventListener('scroll', handleScroll, false);
+    };
+  }, [handleScroll]);
 
   const onReachBottom = useCallback(() => {
     if(loading) {
