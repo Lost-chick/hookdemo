@@ -7,6 +7,5 @@ function useState(initState) {
     lastState[currentIndex] = newState
     render()
   }
-
   return [lastState[stateIndex++], setState]
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, forwardRef } from 'react';
 import Memo from './memo';
 import Counter from './context';
 import ReduxDemo from './reduxDemo';
@@ -14,8 +14,29 @@ import { Flip } from 'number-flip';
 
 import './App.css';
 
+function Child(props,ref){
+  return (
+    <input type="text" ref={ref}/>
+  )
+}
+Child = forwardRef(Child);
+function Parent(){
+  let [number,setNumber] = useState(0); 
+  const inputRef = useRef();
+  function getFocus(){
+    inputRef.current.value = 'focus';
+    inputRef.current.focus();
+  }
+  return (
+      <>
+        <Child ref={inputRef}/>
+        <button onClick={()=>setNumber({number:number+1})}>+</button>
+        <button onClick={getFocus}>获得焦点</button>
+      </>
+  )
+}
+
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
@@ -27,14 +48,7 @@ function App() {
       {/* <Refresh /> */}
       {/* <ReachBottomTest/> */}
       {/* <Gesture /> */}
-      {count}
-      <button
-        onClick={() => {
-          setCount(count + 1);
-        }}
-      >
-        增加
-      </button>
+      <Parent/>
     </div>
   );
 }

@@ -1,11 +1,14 @@
-let lastState;
-function useReducer(reducer, initialState) {
-  lastState = lastState || initialState;
+
+let hookStates=[];
+let hookIndex=0;
+
+function useReducer(reducer, initialState, init) {
+  hookStates[hookIndex] = hookStates[hookIndex] || (init ? init(initialState) : initialState);
+  const currentIndex = hookIndex;
 
   function dispatch(action) {
-    lastState = reducer(lastState, action)
-    render()
+    hookStates[currentIndex] = reducer? reducer(hookStates[hookIndex], action): action;
   }
 
-  return [lastState, dispatch]
+  return [hookStates[hookIndex++], dispatch]
 }

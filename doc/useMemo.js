@@ -1,19 +1,23 @@
-let lastMemo;
-let lastMeMoDependencies
 
-function useMemo(callback, dependencies) {
-  if(lastMeMoDependencies) {
-    let changed = !dependencies.every((item, index)=>{
-      return item ===lastMeMoDependencies[index]
-    })
+let hookStates = [];
+let hookIndex = 0;
 
-    if(changed) {
-      lastMemo = callback();
-      lastMeMoDependencies = dependencies
+function useMemo(factory, deps) {
+  if(hookStates[hookIndex]) {
+    let [lastMemo, lastDeps] = hookStates[hookIndex];
+    let same = deps.every((item, index)=>item === lastDeps[index]);
+
+    if(same) {
+      hookIndex++;
+      return lastMemo
+    }else{
+      let newMemo = factory();
+      hookStates[hookIndex++] = [newMemo, deps]
+      return newMemo
     }
   }else{
-    lastMemo = callback();
-    lastMeMoDependencies = dependencies
+    let newMemo = factory();
+    hookStates[hookIndex++] = [newMemo, deps]
+    return newMemo
   }
-  return  lastCallback
 }
